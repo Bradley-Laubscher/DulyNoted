@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import Todo from './Components/ToDo/ToDo.js';
-import TodoItem from './Components/ToDoItem';
+import DisplayTodos from './Components/DisplayToDo';
+
 
 function App() {
   return (
     <div className="App">
       <Todo />
+      <DisplayTodos />
     </div>
   );
 }

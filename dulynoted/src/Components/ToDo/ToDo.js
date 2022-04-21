@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from './ToDoSlice';
+import { addTodos } from './ToDoSlice';
 
 const mapStateToProps = (state) => {
     return {
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addTodo: (obj) => dispatch(addTodo(obj))
+        addTodo: (obj) => dispatch(addTodos(obj))
     }
 };
 
@@ -29,7 +29,6 @@ const Todo = (props) => {
             setTodo('');
         }
     };
-
 
     const handleChange = (e) => {
         setTodo(e.target.value);
