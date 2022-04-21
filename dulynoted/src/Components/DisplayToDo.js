@@ -28,21 +28,15 @@ const DisplayTodos = (props) => {
     <div className="displaytodos">
       <div className="buttons">
     
-        <button
-          onClick={() => setSort("active")}
-        >
+        <button onClick={() => setSort("active")}>
           Active
         </button>
 
-        <button
-          onClick={() => setSort("completed")}
-        >
+        <button onClick={() => setSort("completed")}>
           Completed
         </button>
 
-        <button
-          onClick={() => setSort("all")}
-        >
+        <button onClick={() => setSort("all")}>
           All
         </button>
 
