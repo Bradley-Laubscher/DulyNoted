@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import addTodos from '../Store';
-import completeTodos  from '../Store';
-import removeTodos from '../Store';
-import updateTodos  from '../Store';
+import {
+  addTodos,
+  completeTodos,
+  removeTodos,
+  updateTodos,
+} from "./ToDo/ToDoSlice";
 import TodoItem from "./ToDoItem";
-
 
 const mapStateToProps = (state) => {
   return {

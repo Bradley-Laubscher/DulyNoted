@@ -33,7 +33,7 @@ const Todo = (props) => {
 
     const handleChange = (e) => {
         setTodo(e.target.value);
-    }
+    };
 
     return (
         <div className='add-to-do'>
