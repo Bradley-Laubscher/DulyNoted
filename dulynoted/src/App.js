@@ -1,13 +1,12 @@
 import React from 'react';
-import Todo from './Components/ToDo/ToDo.js';
-import DisplayTodos from './Components/DisplayToDo';
-
+import Categories from './Components/Categories/Categories';
+import DisplayCategories from './Components/Categories/DisplayCategories';
 
 function App() {
   return (
     <div className="App">
-      <Todo />
-      <DisplayTodos />
+      <Categories /> 
+      <DisplayCategories />
     </div>
   );
 }

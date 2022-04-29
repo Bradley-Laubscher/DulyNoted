@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addTodos } from './ToDoSlice';
+import { addTodos } from '../../Redux/Reducers/TodoSlice';
 
 const mapStateToProps = (state) => {
     return {
@@ -28,7 +28,7 @@ const Todo = (props) => {
                 completed: false,
             });
             setTodo('');
-        }
+        };
     };
 
     const handleChange = (e) => {
@@ -44,16 +44,9 @@ const Todo = (props) => {
                 value={todo}
             />
            <button className='add-button' onClick={() => add()}>
-               Add
+               Add a To-Do
            </button>
            <br />
-
-           <ul>
-               {props.todos.length > 0 &&
-                props.todos.map((item) => {
-                    return <li key={item.id}>{item.item}</li>
-                })}
-           </ul>
 
         </div>
     )
