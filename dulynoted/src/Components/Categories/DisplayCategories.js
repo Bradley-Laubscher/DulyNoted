@@ -20,19 +20,18 @@ const mapStateToProps = (state) => {
     };
   };
 
-
 const DisplayCategories = (props) => {
     return (
         <div>
           <ul>
             {props.categories.map((item) => {
               return (
-                <CategoryItem
-                  key={item.id}
-                  item={item}
-                  removeCategory={props.removeCategory}
-                  updateCategory={props.updateCategory}
-                />
+                  <CategoryItem
+                    key={item.id}
+                    item={item}
+                    removeCategory={props.removeCategory}
+                    updateCategory={props.updateCategory}
+                  />
               )
             })}
           </ul>

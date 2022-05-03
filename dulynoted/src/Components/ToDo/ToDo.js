@@ -1,32 +1,21 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addTodos } from '../../Redux/Reducers/TodoSlice';
 
-const mapStateToProps = (state) => {
-    return {
-        todos: state,
-    }
-};
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addTodo: (obj) => dispatch(addTodos(obj))
-    }
-};
-
-const Todo = (props) => {
-    console.log('props', props);
+const Todo = () => {
     const [todo, setTodo] = useState('');
+    const dispatch = useDispatch();
 
     const add = () => {
         if (todo === '') {
             alert('Please Input a To-Do')
         } else {
-            props.addTodo({
+            dispatch(addTodos({
                 id: Math.floor(Math.random() * 1000),
                 item: todo,
                 completed: false,
-            });
+            }));
             setTodo('');
         };
     };
@@ -52,4 +41,4 @@ const Todo = (props) => {
     )
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Todo);
+export default Todo;

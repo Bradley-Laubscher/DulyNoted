@@ -8,8 +8,6 @@ const todoReducer = createSlice({
         addTodos: (state, action) => {
             let localState = [...state];
             localState.push(action.payload);
-            console.log('payload', action.payload)
-            console.log('state', state.todos)
             return localState;
         },
 
@@ -39,7 +37,7 @@ const todoReducer = createSlice({
                 }   
                 return todo;
             })
-        }
+        },
     }
 });
 

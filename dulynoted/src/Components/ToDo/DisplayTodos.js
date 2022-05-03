@@ -6,8 +6,8 @@ import {
   removeTodos,
   updateTodos,
 } from "../../Redux/Reducers/TodoSlice";
-import TodoItem from "./ToDoItem";
-// import { updateLists } from "../../Redux/Reducers/AppSlice";
+import TodoItem from "./TodoItem";
+
 
 const mapStateToProps = (state) => {
   console.log('state', state);

@@ -15,7 +15,7 @@ const categoriesReducer = createSlice({
             let dlt = window.confirm('Are you sure you want to delete this list?')
             if (dlt) {
                 return state.filter((item) => item.id !== action.payload)
-            }
+            };
         },
 
         updateCategories: (state, action) => {
@@ -27,20 +27,16 @@ const categoriesReducer = createSlice({
                     };
                 }
                 return category;
-            })
+            });
         },   
-        
-        // addToCategory: (state, action) => {
-        //     return state.map((list) => {
-        //         return {
-        //             ...list,
-        //             list: action.payload.item
-        //         };
-        //     })
-        // }
-        // addToDoList
-    }
+    },
 });
 
 export const { addCategories, removeCategories, updateCategories } = categoriesReducer.actions;
 export default categoriesReducer.reducer;
+
+
+
+
+
+// try removing todos slice and adding the actions to categories slice rather, in order to create one state

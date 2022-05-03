@@ -1,34 +1,25 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addCategories } from "../../Redux/Reducers/CategoriesSlice";
 
-const mapStateToProps = (state) => {
-    return {
-        categories: state,
-    }
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addCategory: (obj) => dispatch(addCategories(obj)),
-    }
-};
-
-const Categories = (props) => {
+const Categories = () => {
+    const todos = useSelector((state) => state.todos);
     const [ category, setCategory ] = useState('');
+    const dispatch = useDispatch();
 
     const createCategory = () => {
         if (category === '') {
             alert('Please Input a Category')
         } else {
-            props.addCategory({
+            dispatch(addCategories({
                 id: Math.floor(Math.random() * 1000),
                 item: category,
-            });
+                todos: todos,
+            }));
             setCategory('');
         };
     };
-
+    
     const handleChange = (e) => {
         setCategory(e.target.value);
     };
@@ -44,8 +35,9 @@ const Categories = (props) => {
             <button className='add-btn' onClick={() => createCategory()}>
                 Add a List
             </button>
+            <br />                    
         </div>
     )
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Categories);
+export default Categories;

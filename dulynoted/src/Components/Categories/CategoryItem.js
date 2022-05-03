@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { AiFillEdit } from 'react-icons/ai';
 import { IoClose } from "react-icons/io5";
 import Todo from '../ToDo/Todo';
-import DisplayToDo from '../ToDo/DisplayTodos';
+import DisplayTodos from '../ToDo/DisplayTodos';
 
 const CategoryItem = (props) => {
   
@@ -22,7 +22,7 @@ const CategoryItem = (props) => {
         inputRef.current.disabled = true;
       }
     };
-    
+   
     return (
       <li
         key={item.id}
@@ -34,7 +34,7 @@ const CategoryItem = (props) => {
           defaultValue={item.item}
           onKeyPress={(e) => update(item.id, inputRef.current.value, e)}
         />
-        {/* <button>
+        {/* <button onClick={}>
           {item.item}
         </button> */}
         <div className="btns">
@@ -47,13 +47,10 @@ const CategoryItem = (props) => {
             <IoClose />
           </button>
           <Todo />
-          <DisplayToDo />
+          <DisplayTodos />
         </div>
       </li>
     );
   };
   
   export default CategoryItem;
-
-
-  // () => removeCategory(item.id)
