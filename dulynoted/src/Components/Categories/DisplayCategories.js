@@ -41,7 +41,7 @@ const DisplayCategories = (props) => {
     return (
       <div>
         <ul>
-          {props.cat.categories?.map((category) => {
+          {props.cat?.map((category) => {
             return (
               // onClick={props.displayCategory}
               // onClick={props.addToCategory}
