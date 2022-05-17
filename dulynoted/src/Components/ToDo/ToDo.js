@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTodos } from '../../Redux/Reducers/TodoSlice';
-
+// import { addToCategory } from '../../Redux/Reducers/AppSlice';
+// import { addTodos } from '../../Redux/Reducers/AppSlice';
+import DisplayTodos from './DisplayTodos';
+// import { useSelector } from 'react-redux';
 
 const Todo = () => {
     const [todo, setTodo] = useState('');
+    // const categories = useSelector((state) => state.categories);
     const dispatch = useDispatch();
 
     const add = () => {
@@ -36,7 +40,7 @@ const Todo = () => {
                Add a To-Do
            </button>
            <br />
-
+           <DisplayTodos />
         </div>
     )
 };

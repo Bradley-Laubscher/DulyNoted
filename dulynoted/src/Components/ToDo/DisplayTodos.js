@@ -1,14 +1,25 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect} from "react-redux";
 import {
   addTodos,
   completeTodos,
   removeTodos,
   updateTodos,
 } from "../../Redux/Reducers/TodoSlice";
+// import {
+//   addTodos,
+//   completeTodos,
+//   removeTodos,
+//   updateTodos,
+// } from "../../Redux/Reducers/AppSlice";
 import TodoItem from "./TodoItem";
 
-
+// const mapStateToProps = (state) => {
+//   console.log('state', state);
+//   return {
+//     todos: state.todos,
+//   };
+// };
 const mapStateToProps = (state) => {
   console.log('state', state);
   return {
@@ -28,6 +39,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const DisplayTodos = (props) => {
   const [sort, setSort] = useState("active");
+
   return (
     <div className="displaytodos">
       <div className="buttons">
@@ -51,8 +63,10 @@ const DisplayTodos = (props) => {
       </div>
 
       <ul>
+          {/* { if (categories.)
 
-          {props.todos.length > 0 && sort === "active"
+          } */}
+          {props.todos.length > 0 && sort === "active" 
             ? props.todos.map((item) => {
                 return (
                   item.completed === false && (
@@ -69,7 +83,7 @@ const DisplayTodos = (props) => {
               })
             : null}
           {/* for completed items */}
-          {props.todos.length > 0 && sort === "completed"
+          {props.todos.length > 0 && sort === "completed" 
             ? props.todos.map((item) => {
                 return (
                   item.completed === true && (
@@ -85,7 +99,7 @@ const DisplayTodos = (props) => {
               })
             : null}
           {/* for all items */}
-          {props.todos.length > 0 && sort === "all"
+          {props.todos.length > 0 && sort === "all" 
             ? props.todos.map((item) => {
                 return (
                   <TodoItem

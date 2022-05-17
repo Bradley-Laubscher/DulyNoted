@@ -11,7 +11,7 @@ const todoReducer = createSlice({
             return localState;
         },
 
-        removeTodos: (state,action) => {
+        removeTodos: (state, action) => {
             return state.filter((item) => item.id !== action.payload)
         },
 
@@ -43,3 +43,4 @@ const todoReducer = createSlice({
 
 export const { addTodos, removeTodos, updateTodos, completeTodos } = todoReducer.actions;
 export default todoReducer.reducer;
+

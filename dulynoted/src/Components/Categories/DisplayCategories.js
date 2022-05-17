@@ -1,49 +1,77 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addCategories,
+import { 
          removeCategories,
-         updateCategories
+         updateCategories,
+        //  displayCategory,
+        //  displayAllCategories,
  } from "../../Redux/Reducers/CategoriesSlice";
+// import { 
+//   removeCategories,
+//   updateCategories,
+//   // addToCategory,
+//   // displayCategory,
+//   // displayAllCategories,
+// } from "../../Redux/Reducers/AppSlice";
 import CategoryItem from "./CategoryItem";
 
+// const mapStateToProps = (state) => {
+//   return {
+//     categories: state.app,
+//   };
+// };
 const mapStateToProps = (state) => {
-    return {
-      categories: state.categories,
-    };
+  return {
+    cat: state.categories,
   };
+};
   
-  const mapDispatchToProps = (dispatch) => {
-    return {
-      addCategory: (obj) => dispatch(addCategories(obj)),
-      removeCategory: (id) => dispatch(removeCategories(id)),
-      updateCategory: (obj) => dispatch(updateCategories(obj)),
-    };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeCategory: (categoryId) => dispatch(removeCategories(categoryId)),
+    updateCategory: (obj) => dispatch(updateCategories(obj)),
+    // addToCategory: (obj) => dispatch(addToCategory(obj)),
+    // displayCategory: (categoryId) => dispatch(displayCategory(categoryId)),
+    // displayAllCategories: () => dispatch(displayAllCategories()),
   };
+};
+
 
 const DisplayCategories = (props) => {
     return (
-        <div>
-          <ul>
-            {props.categories.map((item) => {
-              return (
-                  <CategoryItem
-                    key={item.id}
-                    item={item}
-                    removeCategory={props.removeCategory}
-                    updateCategory={props.updateCategory}
-                  />
-              )
-            })}
-          </ul>
-        </div>
-    )
-}
+      <div>
+        <ul>
+          {props.cat.categories?.map((category) => {
+            return (
+              // onClick={props.displayCategory}
+              // onClick={props.addToCategory}
+              <button >
+                {category.item}
+              </button>
+            )
+          })}
+          <button>
+            All
+          </button>
+        
+        </ul>
+        <ul>  
+        {props.cat?.map((category) => {
+            return (
+              <div>
+                <CategoryItem
+                  key={category.categoryId}
+                  item={category}
+                  removeCategory={props.removeCategory}
+                  updateCategory={props.updateCategory}
+                  displayCategories={props.displayCategories}
+                /> 
+              </div>    
+            )
+          })}
+        </ul>
+      </div>
+  )
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(DisplayCategories);
-
-
-
-// add to list,
-// take list add to categories,
-// map categories,
-// map list
