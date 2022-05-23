@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTodos } from '../../Redux/Reducers/TodoSlice';
-// import { addToCategory } from '../../Redux/Reducers/AppSlice';
-// import { addTodos } from '../../Redux/Reducers/AppSlice';
 import DisplayTodos from './DisplayTodos';
 // import { useSelector } from 'react-redux';
 

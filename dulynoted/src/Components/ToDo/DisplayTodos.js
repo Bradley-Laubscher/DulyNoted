@@ -6,20 +6,9 @@ import {
   removeTodos,
   updateTodos,
 } from "../../Redux/Reducers/TodoSlice";
-// import {
-//   addTodos,
-//   completeTodos,
-//   removeTodos,
-//   updateTodos,
-// } from "../../Redux/Reducers/AppSlice";
+
 import TodoItem from "./TodoItem";
 
-// const mapStateToProps = (state) => {
-//   console.log('state', state);
-//   return {
-//     todos: state.todos,
-//   };
-// };
 const mapStateToProps = (state) => {
   console.log('state', state);
   return {
@@ -119,3 +108,10 @@ const DisplayTodos = (props) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DisplayTodos);
+
+
+
+// keep all todos in one state, same with categories, 
+// only display the categories which are active, (through filtering out ones with the active state)
+// only display todos which correspond to the active category (through matching id - somehow) 
+// if todo is created within a category, give it  unique ID somehow

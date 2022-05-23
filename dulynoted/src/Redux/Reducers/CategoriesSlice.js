@@ -34,12 +34,9 @@ const categoriesReducer = createSlice({
             });
         },   
 
-        // displayCategory: (state, action) => {
-        //     // let newState = 
-        //     state.filter((category) => category.categoryId === action.payload.key);
-        //     // return newState;
-
-        // },
+        selectCategory: (state, action) => {
+            return state.filter((category) => category.categoryId === action.payload)
+        },
 
         // displayAllCategories: (state) => {
         //     return state;
@@ -50,8 +47,14 @@ const categoriesReducer = createSlice({
 export const { addCategories, 
                removeCategories, 
                updateCategories, 
-            //    displayCategory, 
+               selectCategory,
             //    displayAllCategories
              } = categoriesReducer.actions;
 
 export default categoriesReducer.reducer;
+
+
+// problem: when selecting a category by clicking on it, it somewhow removes the rest of the categories from state and only leaves the selected category in state.
+
+
+
