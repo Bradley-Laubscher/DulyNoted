@@ -18,7 +18,7 @@ const Categories = () => {
                 categoryId: Math.floor(Math.random() * 1000),
                 item: category,
                 // todos: todos,
-                isActive: false,
+                // isActive: false,
                 // todos: [],
             }));
             setCategory('');

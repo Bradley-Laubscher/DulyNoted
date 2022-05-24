@@ -5,6 +5,10 @@ const categoriesReducer = createSlice({
     // initialState: [{
     //     category: {},
     // }],
+    // initialState: {
+    //     categories: [],
+    //     filter: null,
+    // },
     initialState: [],
     reducers: {
 
@@ -38,9 +42,15 @@ const categoriesReducer = createSlice({
             return state.filter((category) => category.categoryId === action.payload)
         },
 
-        // displayAllCategories: (state) => {
-        //     return state;
+        displayAllCategories: (state, action) => {
+            return state;
+            // return state.filter((category) => category.categoryId === action.payload || category.categoryId !== action.payload)
+        },
+
+        // selectCategory: (state, action) => {
+        //     state.filter = action.payload.categoryId;
         // },
+
     },
 });
 
@@ -48,7 +58,7 @@ export const { addCategories,
                removeCategories, 
                updateCategories, 
                selectCategory,
-            //    displayAllCategories
+               displayAllCategories
              } = categoriesReducer.actions;
 
 export default categoriesReducer.reducer;
