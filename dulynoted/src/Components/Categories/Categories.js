@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-// import { useSelector } from "react-redux";
 import { addCategories } from "../../Redux/Reducers/CategoriesSlice";
 import DisplayCategories from "./DisplayCategories";
 
 
-const Categories = () => {
-    // const todos = useSelector((state) => state.todos);   
+const Categories = () => { 
     const [ category, setCategory ] = useState('');
     const dispatch = useDispatch();
 
@@ -17,9 +15,6 @@ const Categories = () => {
             dispatch(addCategories({
                 categoryId: Math.floor(Math.random() * 1000),
                 item: category,
-                // todos: todos,
-                // isActive: false,
-                // todos: [],
             }));
             setCategory('');
         };
@@ -34,10 +29,9 @@ const Categories = () => {
             <input 
                 type='text' 
                 onChange={(e) => handleChange(e)} 
-                className='category-input'
                 value={category}
             />
-            <button className='add-btn' onClick={() => createCategory()}>
+            <button onClick={() => createCategory()}>
                 Add a List
             </button>
             <br />    

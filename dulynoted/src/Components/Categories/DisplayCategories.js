@@ -1,88 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { connect } from "react-redux";
-// import { useState } from "react";
 import { 
          removeCategories,
          updateCategories,
-         selectCategory,
-         displayAllCategories,
  } from "../../Redux/Reducers/CategoriesSlice";
 import CategoryItem from "./CategoryItem";
 
-// const mapStateToProps = (state) => {
-//   return {
-//     cat: state.categories,
-//   };
-// };
-  
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     removeCategory: (categoryId) => dispatch(removeCategories(categoryId)),
-//     updateCategory: (obj) => dispatch(updateCategories(obj)),
-//     selectCategory: (categoryId) => dispatch(selectCategory(categoryId)),
-//     displayAllCategories: () => dispatch(displayAllCategories()),
-//   };
-// };
-
-
 const DisplayCategories = () => {
   const dispatch = useDispatch();
-  const cat = useSelector((State) => State.categories);
+  const cats = useSelector((state) => state.categories);
+  const [ select, setSelect] = useState('All');
+  const [ activeCategory, setActiveCategory] = useState(null);
 
-    // const [state, setState] = useState('All');
+    const handleChange = (e) => {
+      setSelect(e.target.value) 
+    };
 
-    // const cats = useSelector((state) => { 
-    //   const all = state.categories.categories;
-    //   const filterId = state.categories.filter;
-    //   if (filterId === null) {
-    //     return all;
-    //   } else {
-    //     return all.filter(category => category.categoryId === filterId)
-    //   }
-    // })
-
+    useEffect(() => {
+      console.log("select", select)
+      const categoryFilter = cats.filter((category) => category.item === select);
+      setActiveCategory(categoryFilter);
+    }, [cats, select]);
+ 
     return (
       <div>
-        <ul>
-          {cat.map((category) => {
+
+        <select id='category-selection' onChange={handleChange}>
+          {cats.map((category) => {
             return (
-              // <button onClick={() => setState('Active')}>
-              //   {category.item}
-              // </button>
-              // <button onClick={() => props.selectCategory(category.categoryId)}>
-              //   {category.item}
-              // </button>
-              <button onClick={() => dispatch(selectCategory(category.categoryId))}>
+              <option>
                 {category.item}
-              </button>
+              </option>
             )  
           })}
-          
-          {/* <button onClick={() => props.displayAllCategories()}>
+          <option>
             All
-          </button> */}
-          <button onClick={() => dispatch(displayAllCategories())}>
-            All
-          </button>
-        
-        </ul>
+          </option>
+        </select>
+    
         <ul>  
-        {/* {props.cat.map((category) => {
+          { activeCategory !== null && activeCategory.map((category) => {
             return (
-              <div key={category.categoryId}>
-                <CategoryItem
-                  key={category.categoryId}
-                  item={category}
-                  removeCategory={props.removeCategory}
-                  updateCategory={props.updateCategory}
-                /> 
-              </div>    
-            )
-          })} */}
-          {cat.map((category) => {
-            return (
-              <div key={category.categoryId}>
+              <div>
                 <CategoryItem
                   key={category.categoryId}
                   item={category}
@@ -93,12 +52,22 @@ const DisplayCategories = () => {
             )
           })}
 
+          { select === 'All' && cats.map((category) => {
+            return (
+              <div>
+                <CategoryItem
+                  key={category.categoryId}
+                  item={category}
+                  removeCategory={(categoryId) => dispatch(removeCategories(categoryId))}
+                  updateCategory={(obj) => dispatch(updateCategories(obj))}
+                /> 
+              </div> 
+            )   
+            })}
         </ul>
+  
       </div>
   )
 };
 
-// export default connect(mapStateToProps, mapDispatchToProps)(DisplayCategories);
 export default DisplayCategories;
-
-// To Filter state - use useSelector instead of dispatching and action with the filter function in categoriesSlice (as this changes state permanently).

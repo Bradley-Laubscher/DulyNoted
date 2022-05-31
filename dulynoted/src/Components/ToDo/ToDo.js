@@ -17,6 +17,7 @@ const Todo = () => {
                 id: Math.floor(Math.random() * 1000),
                 item: todo,
                 completed: false,
+                // categoryId: 
             }));
             setTodo('');
         };
@@ -44,3 +45,8 @@ const Todo = () => {
 };
 
 export default Todo;
+
+
+// external state --- appState 
+
+// use selector on appstate to get active category Id
