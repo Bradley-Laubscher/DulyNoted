@@ -17,7 +17,7 @@ const DisplayCategories = () => {
     };
 
     useEffect(() => {
-      console.log("select", select)
+      console.log("selected", select)
       const categoryFilter = cats.filter((category) => category.item === select);
       setActiveCategory(categoryFilter);
     }, [cats, select]);

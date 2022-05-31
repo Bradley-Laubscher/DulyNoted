@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { AiFillEdit } from 'react-icons/ai';
 import { IoClose } from "react-icons/io5";
-import Todo from '../ToDo/Todo';
+import Todo from '../Todo/Todo';
 
 const CategoryItem = (props) => {  
     const { item, updateCategory, removeCategory } = props;

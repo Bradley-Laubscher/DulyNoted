@@ -6,7 +6,7 @@ import DisplayTodos from './DisplayTodos';
 
 const Todo = () => {
     const [todo, setTodo] = useState('');
-    // const categories = useSelector((state) => state.categories);
+    // const activeCategoryId = useSelector((state) => state.app.activeCategoryId);
     const dispatch = useDispatch();
 
     const add = () => {
@@ -17,7 +17,7 @@ const Todo = () => {
                 id: Math.floor(Math.random() * 1000),
                 item: todo,
                 completed: false,
-                // categoryId: 
+                // activeCategoryId: activeCategoryId,
             }));
             setTodo('');
         };
