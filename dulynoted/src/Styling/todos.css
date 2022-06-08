@@ -1,0 +1,25 @@
+.addTodo {
+    margin-top: 1%;
+}
+
+.todoTextArea {
+    text-align: left;
+    padding-left: 1%;
+    color:rgb(0, 255, 242);
+    border: 2px solid;
+    border-radius: 10px;
+    border-color:rgb(0, 255, 242);
+    width: 30%;
+}
+
+.buttons {
+    margin-top: 0.5%;
+    margin-bottom: 2%;
+}
+
+@media screen and (max-width: 600px) {
+    .todoTextArea {
+        width: 65%;
+        margin-right: 10%;
+    }
+}

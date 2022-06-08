@@ -25,24 +25,29 @@ const CategoryItem = (props) => {
         key={item.categoryId}
         className="card"
       >
-        <br />
-        <textarea
-          ref={inputRef}
-          disabled={inputRef}
-          defaultValue={item.item}
-          onKeyPress={(e) => update(item.categoryId, inputRef.current.value, e)}
-        />
-        <div className="btns">
-          <button  onClick={() => changeFocus()}>
-            <AiFillEdit />
-          </button>
-          <button
-            style={{ color: "red" }}
-            onClick={() => removeCategory(item.categoryId)} >
-            <IoClose />
-          </button>
-          <Todo />
+        <div>
+          <div className='categoryArea'>
+            <textarea 
+              className='categoryTextArea' 
+              ref={inputRef}
+              disabled={inputRef}
+              defaultValue={item.item}
+              onKeyPress={(e) => update(item.categoryId, inputRef.current.value, e)}
+            />
+          </div>
+
+          <div className='btns'>
+            <button  onClick={() => changeFocus()}>
+              <AiFillEdit />
+            </button>
+            <button
+              style={{ color: "red" }}
+              onClick={() => removeCategory(item.categoryId)} >
+              <IoClose />
+            </button>
+          </div>
         </div>
+        <Todo />
       </li>
     );
   };

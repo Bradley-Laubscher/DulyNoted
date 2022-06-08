@@ -1,0 +1,22 @@
+* {
+  font-family:  Comic Sans MS, Comic Sans;
+  font-size: 15px;
+}
+
+@media screen and (max-width: 600px) {
+  * {
+    font-size: 10px;
+  }
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.938);
+}
+
+
+
+

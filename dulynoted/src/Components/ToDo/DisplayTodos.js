@@ -14,6 +14,7 @@ const DisplayTodos = () => {
 
   return (
     <div className="displaytodos">
+
       <div className="buttons">
     
         <button onClick={() => setSort("active")}>
@@ -79,6 +80,7 @@ const DisplayTodos = () => {
             : null}
    
       </ul>
+      
     </div>
   );
 };

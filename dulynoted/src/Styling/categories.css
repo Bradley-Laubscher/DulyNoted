@@ -1,0 +1,46 @@
+.addCategory {
+    margin-top: 1%;
+}
+
+.categoryInput {
+    border: 2px solid transparent;
+    border-radius: 5px;
+    border-color: rgb(251, 2, 2);
+    font-size: 20px;
+}
+
+.categoryButton {
+    font-size: 20px;
+}
+
+.categoryArea {
+  margin-top: 50px; 
+}
+
+.categoryList {
+    list-style-type: none;
+}
+
+.categorySelection {
+    margin-top: 0.5%;
+    font-size: 15px;
+}
+
+.categoryTextArea {
+    text-align: center;
+    color:gold;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: gold;
+}
+
+@media screen and (max-width: 600px) {
+    .categoryInput {
+        font-size: 15px;
+    }
+    .categoryButton {
+        font-size: 15px;
+    }
+}
+
+

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addTodos } from '../../Redux/Reducers/TodoSlice';
 import DisplayTodos from './DisplayTodos';
-// import { useSelector } from 'react-redux';
 
 const Todo = () => {
     const [todo, setTodo] = useState('');
-    // const activeCategoryId = useSelector((state) => state.app.activeCategoryId);
+    const activeCategoryId = useSelector((state) => state.app.activeCategoryId);
+    // const catId = useSelector((state) => state.category);
     const dispatch = useDispatch();
 
     const add = () => {
@@ -17,7 +17,8 @@ const Todo = () => {
                 id: Math.floor(Math.random() * 1000),
                 item: todo,
                 completed: false,
-                // activeCategoryId: activeCategoryId,
+                // categoryId: catId.categoryId,
+                activeCategoryId: activeCategoryId,
             }));
             setTodo('');
         };
@@ -28,17 +29,16 @@ const Todo = () => {
     };
 
     return (
-        <div className='add-to-do'>
+        <div className='addTodo'>
             <input 
                 type='text'
                 onChange={(e) => handleChange(e)}
                 className='todo-input'
                 value={todo}
             />
-           <button className='add-button' onClick={() => add()}>
+           <button className='button' onClick={() => add()}>
                Add a To-Do
            </button>
-           <br />
            <DisplayTodos />
         </div>
     )

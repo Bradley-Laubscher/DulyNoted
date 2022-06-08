@@ -5,12 +5,13 @@ const appReducer = createSlice({
     initialState: {
         activeCategoryId: []
     },
+    // initialState: [],
     reducers: {
 
         getActiveCategoryId: (state, action) => {
             let localState = state.activeCategoryId.push(action.payload)
             return localState;
-        }
+        },
 
     }
 })
@@ -20,4 +21,4 @@ export const {
 
 } = appReducer.actions
 
-export default appReducer;
+export default appReducer.reducer;
