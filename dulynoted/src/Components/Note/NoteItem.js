@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
 import { AiFillEdit } from 'react-icons/ai';
 import { IoCheckmarkDoneSharp, IoClose } from "react-icons/io5";
+import { motion } from 'framer-motion';
 
-const TodoItem = (props) => {
+const NoteItem = (props) => {
   
-    const { item, updateTodo, removeTodo, completeTodo } = props;
+    const { item, updateNotes, removeNotes, completeNotes } = props;
   
     const inputRef = useRef(true);
   
@@ -16,17 +17,21 @@ const TodoItem = (props) => {
     const update = (id, value, e) => {
       if (e.which === 13) {
         //here 13 is key code for enter key
-        updateTodo({ id, item: value });
+        updateNotes({ id, item: value });
         inputRef.current.disabled = true;
       }
     };
     return (
-      <li
+      <motion.li
+        initial={{ x: "150vw", transition: {type: "spring", duration: 1.5 },
+        }}
+        animate={{ x: 0, transition: {type: "spring", duration: 1.5 },
+        }}
         key={item.id}
         className="card"
       >
         <textarea
-          className='todoTextArea'
+          className='noteTextArea'
           ref={inputRef}
           disabled={inputRef}
           defaultValue={item.item}
@@ -35,30 +40,37 @@ const TodoItem = (props) => {
         
         <div >
 
-          <button className='btns' onClick={() => changeFocus()}>
+          <motion.button 
+            whileTap={{ scale: 0.9}} 
+            className='btns' 
+            onClick={() => changeFocus()}>
             <AiFillEdit />
-          </button>
+          </motion.button>
+
           {item.completed === false && (
-            <button
+            <motion.button
+              whileTap={{ scale: 0.9}}
               className='btns'
               style={{ color: "green" }}
-              onClick={() => completeTodo(item.id)}
+              onClick={() => completeNotes(item.id)}
             >
               <IoCheckmarkDoneSharp />
-            </button>
+            </motion.button>
           )}
-          <button
+          
+          <motion.button
+            whileTap={{ scale: 0.9}}
             className='btns'
             style={{ color: "red" }}
-            onClick={() => removeTodo(item.id)} >
+            onClick={() => removeNotes(item.id)} >
             <IoClose />
-          </button>
+          </motion.button>
 
         </div>
         {item.completed && <span className="completed">done</span>}
          
-      </li>
+      </motion.li>
     );
   };
   
-  export default TodoItem;
+  export default NoteItem;

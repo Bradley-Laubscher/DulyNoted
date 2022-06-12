@@ -3,14 +3,18 @@ import { createSlice } from "@reduxjs/toolkit";
 const appReducer = createSlice({
     name: 'app',
     initialState: {
-        activeCategoryId: []
+        activeCategoryId: null
     },
     // initialState: [],
     reducers: {
 
         getActiveCategoryId: (state, action) => {
-            let localState = state.activeCategoryId.push(action.payload)
-            return localState;
+            return state.activeCategoryId;
+        },
+
+        setActiveCategoryId: (state, action) => {
+            state.activeCategoryId = action.payload;
+            return state;
         },
 
     }
@@ -18,7 +22,8 @@ const appReducer = createSlice({
 
 export const {
     getActiveCategoryId,
+    setActiveCategoryId
 
-} = appReducer.actions
+} = appReducer.actions;
 
 export default appReducer.reducer;

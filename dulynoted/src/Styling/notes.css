@@ -1,8 +1,8 @@
-.addTodo {
+.addNote {
     margin-top: 1%;
 }
 
-.todoTextArea {
+.noteTextArea {
     text-align: left;
     padding-left: 1%;
     color:rgb(0, 255, 242);
@@ -18,7 +18,7 @@
 }
 
 @media screen and (max-width: 600px) {
-    .todoTextArea {
+    .noteTextArea {
         width: 65%;
         margin-right: 10%;
     }

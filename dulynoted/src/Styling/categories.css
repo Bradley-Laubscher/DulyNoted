@@ -2,6 +2,10 @@
     margin-top: 1%;
 }
 
+.displayCategories {
+    color: white;
+}
+
 .categoryInput {
     border: 2px solid transparent;
     border-radius: 5px;

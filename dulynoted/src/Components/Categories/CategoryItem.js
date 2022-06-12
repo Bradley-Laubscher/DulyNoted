@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import { AiFillEdit } from 'react-icons/ai';
 import { IoClose } from "react-icons/io5";
-import Todo from '../Todo/Todo';
+import { motion } from 'framer-motion';
+import Note from '../Note/Note';
 
 const CategoryItem = (props) => {  
     const { item, updateCategory, removeCategory } = props;
@@ -26,6 +27,7 @@ const CategoryItem = (props) => {
         className="card"
       >
         <div>
+
           <div className='categoryArea'>
             <textarea 
               className='categoryTextArea' 
@@ -37,17 +39,22 @@ const CategoryItem = (props) => {
           </div>
 
           <div className='btns'>
-            <button  onClick={() => changeFocus()}>
+            <motion.button 
+              whileTap={{ scale: 0.9}}
+              onClick={() => changeFocus()}>
               <AiFillEdit />
-            </button>
-            <button
+            </motion.button>
+
+            <motion.button
+              whileTap={{ scale: 0.9}}
               style={{ color: "red" }}
               onClick={() => removeCategory(item.categoryId)} >
               <IoClose />
-            </button>
+            </motion.button>
           </div>
+
         </div>
-        <Todo />
+        <Note />
       </li>
     );
   };
