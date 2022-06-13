@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const appReducer = createSlice({
     name: 'app',
     initialState: {
-        activeCategoryId: null
+        activeCategoryId: null,
+        // activeCategoryId: [],
     },
     // initialState: [],
     reducers: {

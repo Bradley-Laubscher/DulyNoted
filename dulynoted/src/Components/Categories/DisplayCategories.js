@@ -34,8 +34,16 @@ const DisplayCategories = () => {
           const filteredCategoryId = category.categoryId;
           return dispatch(setActiveCategoryId(filteredCategoryId));
         })
-      } 
-    }, [dispatch, activeCategory]);
+      // } else if (select === 'All') {
+      //   // add all activeCategoryId's to activeCategoryId's array, spread the array to get all the activeCategoryId's in number form ... will notes still filter correctly?
+      //   const allActiveCategoryIds = [];
+      //   cats.map((category) => {
+      //     allActiveCategoryIds.push(category.categoryId);
+      //     return allActiveCategoryIds;
+      //   });
+      //   dispatch(setActiveCategoryId(allActiveCategoryIds));
+      }
+    }, [dispatch, cats, select, activeCategory]);
     
     return (
       <div className='displayCategories'>
