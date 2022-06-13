@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import DisplayCategories from "./DisplayCategories";
 import { setActiveCategoryId } from "../../Redux/Reducers/AppSlice";
 
-
 const Categories = () => { 
     const cats = useSelector((state) => state.categories);
     const dispatch = useDispatch();
@@ -33,7 +32,7 @@ const Categories = () => {
             return setCategoryItem('');
         })
     };
-    // why is there an error when adding a duplicate category, also why does setCategory only work from the second category onwards?
+    // why is there an error when adding a duplicate category, also why does setCategoryItem only work from the second category onwards?
 
     const createCategory = () => {
         if (categoryItem === '') {

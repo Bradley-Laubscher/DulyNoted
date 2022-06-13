@@ -36,11 +36,6 @@ const DisplayCategories = () => {
         })
       } 
     }, [dispatch, activeCategory]);
-
-    // get selected categories Id from activeCategory,
-    // add activeCategoryId to appSlice,
-    // use useSelector in note to get activeCategoryId from appSlice,
-    // somehow check if activeCategoryId matches current categoryId ???????
     
     return (
       <div className='displayCategories'>
