@@ -4,13 +4,20 @@ import {
          removeCategories,
          updateCategories,
  } from "../../Redux/Reducers/CategoriesSlice";
-import CategoryItem from "./CategoryItem";
+ import {
+  completeNotes,
+  removeNotes,
+  updateNotes,
+} from "../../Redux/Reducers/NoteSlice";
 import { setActiveCategoryId } from "../../Redux/Reducers/AppSlice";
+import CategoryItem from "./CategoryItem";
+import NoteItem from "../Note/NoteItem";
 
 const DisplayCategories = () => {
   const dispatch = useDispatch();
   const cats = useSelector((state) => state.categories);
-  const [ select, setSelect] = useState('All');
+  const notes = useSelector((state) => state.notes);
+  const [ select, setSelect] = useState('All notes');
   const [ activeCategory, setActiveCategory] = useState(null);
 
     const handleChange = (e) => {
@@ -19,13 +26,12 @@ const DisplayCategories = () => {
 
     useEffect(() => {
       console.log("selected", select)
-      if (select !== 'All') {
+      if (select !== 'All notes') {
         const categoryFilter = cats.filter((category) => category.item === select);
         setActiveCategory(categoryFilter);
       } else {
-        setActiveCategory(null);
-      }
-      
+        setActiveCategory(null); 
+      }  
     }, [cats, select]);
 
     useEffect(() => {
@@ -34,16 +40,8 @@ const DisplayCategories = () => {
           const filteredCategoryId = category.categoryId;
           return dispatch(setActiveCategoryId(filteredCategoryId));
         })
-      // } else if (select === 'All') {
-      //   // add all activeCategoryId's to activeCategoryId's array, spread the array to get all the activeCategoryId's in number form ... will notes still filter correctly?
-      //   const allActiveCategoryIds = [];
-      //   cats.map((category) => {
-      //     allActiveCategoryIds.push(category.categoryId);
-      //     return allActiveCategoryIds;
-      //   });
-      //   dispatch(setActiveCategoryId(allActiveCategoryIds));
       }
-    }, [dispatch, cats, select, activeCategory]);
+    }, [dispatch, activeCategory]);
     
     return (
       <div className='displayCategories'>
@@ -57,7 +55,7 @@ const DisplayCategories = () => {
             )  
           })}
           <option>
-            All
+            All notes
           </option>
         </select>
     
@@ -75,18 +73,17 @@ const DisplayCategories = () => {
             )
           })}
 
-          { select === 'All' && cats.map((category) => {
+          { select === 'All notes' && notes.map((item) => {
             return (
-              <div>
-                <CategoryItem
-                  key={category.categoryId}
-                  item={category}
-                  removeCategory={(categoryId) => dispatch(removeCategories(categoryId))}
-                  updateCategory={(obj) => dispatch(updateCategories(obj))}
-                /> 
-              </div> 
+              <NoteItem
+                  key={item.id}
+                  item={item}
+                  removeNotes={(id) => dispatch(removeNotes(id))}
+                  updateNotes={(obj) => dispatch(updateNotes(obj))}
+                  completeNotes={(id) => dispatch(completeNotes(id))}
+                />
             )   
-            })}
+          })}
         </ul>
   
       </div>

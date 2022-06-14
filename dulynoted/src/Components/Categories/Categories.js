@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addCategories } from "../../Redux/Reducers/CategoriesSlice";
 import { motion } from "framer-motion";
 import DisplayCategories from "./DisplayCategories";
-import { setActiveCategoryId } from "../../Redux/Reducers/AppSlice";
+// import { setActiveCategoryId } from "../../Redux/Reducers/AppSlice";
 
 const Categories = () => { 
     const cats = useSelector((state) => state.categories);
@@ -44,7 +44,7 @@ const Categories = () => {
                 item: categoryItem,
             }));
             setCategoryItem('');
-            dispatch(setActiveCategoryId(randomNumber));
+            // dispatch(setActiveCategoryId(randomNumber));
         };
     };
     
@@ -68,7 +68,7 @@ const Categories = () => {
                 Add a list
             </motion.button>
             <br />    
-            <DisplayCategories />                
+            <DisplayCategories />               
         </div>
     )
 };

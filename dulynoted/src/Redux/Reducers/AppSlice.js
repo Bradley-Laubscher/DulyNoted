@@ -6,12 +6,11 @@ const appReducer = createSlice({
         activeCategoryId: null,
         // activeCategoryId: [],
     },
-    // initialState: [],
     reducers: {
 
-        getActiveCategoryId: (state, action) => {
-            return state.activeCategoryId;
-        },
+        // getActiveCategoryId: (state, action) => {
+        //     return state.activeCategoryId;
+        // },
 
         setActiveCategoryId: (state, action) => {
             state.activeCategoryId = action.payload;
