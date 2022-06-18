@@ -17,6 +17,10 @@
     margin-bottom: 2%;
 }
 
+.completed {
+    color: greenyellow;
+}
+
 @media screen and (max-width: 600px) {
     .noteTextArea {
         width: 65%;

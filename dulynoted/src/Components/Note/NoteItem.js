@@ -4,9 +4,7 @@ import { IoCheckmarkDoneSharp, IoClose } from "react-icons/io5";
 import { motion } from 'framer-motion';
 
 const NoteItem = (props) => {
-  
     const { item, updateNotes, removeNotes, completeNotes } = props;
-  
     const inputRef = useRef(true);
   
     const changeFocus = () => {
@@ -21,6 +19,7 @@ const NoteItem = (props) => {
         inputRef.current.disabled = true;
       }
     };
+    
     return (
       <motion.li
         initial={{ x: "150vw", transition: {type: "spring", duration: 1.5 },

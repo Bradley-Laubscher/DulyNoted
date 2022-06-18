@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNotes } from '../../Redux/Reducers/NoteSlice';
 import { motion } from 'framer-motion';
 import DisplayNotes from './DisplayNotes';
 
-const Notes = (props) => {
+const Notes = () => {
     const [note, setNote] = useState('');
     const activeCategoryId = useSelector((state) => state.app.activeCategoryId);
     const dispatch = useDispatch();
+    const inputRef = useRef(null);
 
     const add = () => {
         if (note === '') {
@@ -28,9 +29,14 @@ const Notes = (props) => {
         setNote(e.target.value);
     };
 
+    useEffect(() => {
+        inputRef.current.focus();
+    }, [ note ]);
+
     return (
         <div className='addNote'>
             <input 
+                ref={inputRef}
                 type='text'
                 onChange={(e) => handleChange(e)}
                 value={note}

@@ -15,8 +15,8 @@ const DisplayNotes = () => {
   const [sort, setSort] = useState("active");
 //   const [ savedNotes, setSavedNotes ] = useState (() => {
 //     const saved = localStorage.getItem('savedNotes');
-//     const initialValue = JSON.parse(saved);
-//     return initialValue || '';
+//     const initialNoteValue = JSON.parse(saved);
+//     return initialNoteValue || '';
 //   });
 
 //   useEffect(() => {
@@ -31,7 +31,6 @@ const DisplayNotes = () => {
     <div className="displayNotes">
 
       <div className="buttons">
-    
         <motion.button whileTap={{ scale: 0.9}} onClick={() => setSort("active")}>
           Active
         </motion.button>
@@ -43,7 +42,6 @@ const DisplayNotes = () => {
         <motion.button whileTap={{ scale: 0.9}} onClick={() => setSort("all")}>
           All
         </motion.button>
-
       </div>
 
       <ul>
@@ -93,7 +91,6 @@ const DisplayNotes = () => {
                 );
               })
             : null}
-   
       </ul>
       
     </div>
