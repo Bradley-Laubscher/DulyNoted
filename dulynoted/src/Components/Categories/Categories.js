@@ -11,22 +11,39 @@ import {
     completeNotes,
     removeNotes,
     updateNotes,
-  } from "../../Redux/Reducers/NoteSlice";
-  import NoteItem from "../Note/NoteItem";
-  import CategoryItem from "./CategoryItem";
+} from "../../Redux/Reducers/NoteSlice";
+import NoteItem from "../Note/NoteItem";
+import CategoryItem from "./CategoryItem";
 
 const Categories = () => { 
     const cats = useSelector((state) => state.categories);
     const notes = useSelector((state) => state.notes);
     const dispatch = useDispatch();
     const [ categoryItem, setCategoryItem ] = useState('');
+    const [ select, setSelect ] = useState('');
+    const [ activeCategory, setActiveCategory ] = useState(null);
+    // const savedCats = useSelector((state) => {
+    //     const savedInitialValue = JSON.parse(localStorage.getItem('savedCategories'));
+    //     return savedInitialValue || state.categories;
+    // });
     // const [ savedCategories, setSavedCategories ] = useState(() => {
     //     const saved = localStorage.getItem('savedCategories');
     //     const initialValue = JSON.parse(saved);
     //     return initialValue || '';
     // });   
-    const [ select, setSelect] = useState('');
-    const [ activeCategory, setActiveCategory] = useState(null);
+
+    // useEffect(() => {
+    //     setSavedCategories(cats);
+    // }, [cats]);
+
+    useEffect(() => {
+        localStorage.setItem('savedCategories', JSON.stringify(cats));
+    }, [cats]);
+
+    // useEffect(() => {
+    //     const getSavedCategories = JSON.parse(localStorage.getItem('savedCategories'));
+    //     console.log('savedCategories', getSavedCategories);
+    // }, []);
 
     const createCategory = () => {
         setSelect(categoryItem);
@@ -58,17 +75,17 @@ const Categories = () => {
 
     const handleSelectChange = (e) => {
         setSelect(e.target.value) 
-      };
+    };
 
     useEffect(() => {
-        console.log("selected", select)
         if (select !== 'All notes') {
           const categoryFilter = cats.filter((category) => category.item === select);
           setActiveCategory(categoryFilter);
         } else {
           setActiveCategory(null); 
         }  
-      }, [cats, select]);
+    //   }, [ select ]);
+    }, [ cats, select ]);
 
       useEffect(() => {
         if (activeCategory !== null) {
@@ -86,6 +103,11 @@ const Categories = () => {
                     className='categoryInput'
                     type='text' 
                     onChange={(e) => handleChange(e)} 
+                    onKeyPress={(e) => {
+                        if (e.which ===13) {
+                            createCategory();
+                        }
+                    }}
                     value={categoryItem}
                 />
                 <motion.button 

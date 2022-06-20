@@ -17,7 +17,6 @@ const appReducer = createSlice({
 
 export const {
     setActiveCategoryId
-
 } = appReducer.actions;
 
 export default appReducer.reducer;

@@ -40,6 +40,11 @@ const Notes = () => {
                 type='text'
                 onChange={(e) => handleChange(e)}
                 value={note}
+                onKeyPress={(e) => {
+                    if (e.which === 13) {
+                        add()
+                    }
+                }}
             />
            <motion.button 
                 whileHover={{ scale: 1.1 }} 
