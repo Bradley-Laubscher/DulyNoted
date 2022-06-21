@@ -1,32 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { motion } from "framer-motion";
 import {
   completeNotes,
   removeNotes,
   updateNotes,
 } from "../../Redux/Reducers/NoteSlice";
-import { motion } from "framer-motion";
 import NoteItem from "./NoteItem";
 
 const DisplayNotes = () => {
   const dispatch = useDispatch();
   const activeCategoryId = useSelector((state) => state.app.activeCategoryId);
-  const notes = useSelector((state) => state.notes.filter((note) => note.activeCategoryId === activeCategoryId));
+  const notes = useSelector((state) => state.notes);
   const [sort, setSort] = useState("active");
-//   const [ savedNotes, setSavedNotes ] = useState (() => {
-//     const saved = localStorage.getItem('savedNotes');
-//     const initialNoteValue = JSON.parse(saved);
-//     return initialNoteValue || '';
-//   });
-
-//   useEffect(() => {
-//     setSavedNotes(notes);
-// }, [notes]);
-
-//   useEffect(() => {
-//     localStorage.setItem('savedNotes', JSON.stringify(savedNotes));
-//   }, [savedNotes]);
- 
+  const filteredNotes = notes.filter((note) => note.activeCategoryId === activeCategoryId);
+    
+  useEffect(() => {
+    localStorage.setItem('savedNotes', JSON.stringify(notes));
+  }, [ notes ]);
+  
   return (
     <div className="displayNotes">
 
@@ -46,7 +38,7 @@ const DisplayNotes = () => {
 
       <ul>
           {notes.length > 0 && sort === "active" 
-            ? notes.map((item) => {
+            ? filteredNotes.map((item) => {
                 return (
                   item.completed === false && (
                     <NoteItem
@@ -63,7 +55,7 @@ const DisplayNotes = () => {
             : null}
           {/* for completed items */}
           {notes.length > 0 && sort === "completed" 
-            ? notes.map((item) => {
+            ? filteredNotes.map((item) => {
                 return (
                   item.completed === true && (
                     <NoteItem
@@ -79,7 +71,7 @@ const DisplayNotes = () => {
             : null}
           {/* for all items */}
           {notes.length > 0 && sort === "all" 
-            ? notes.map((item) => {
+            ? filteredNotes.map((item) => {
                 return (
                   <NoteItem
                     key={item.id}
@@ -98,10 +90,3 @@ const DisplayNotes = () => {
 };
 
 export default DisplayNotes;
-
-
-
-// keep all notes in one state, same with categories, 
-// only display the categories which are active, (through filtering out ones with the active state)
-// only display notes which correspond to the active category (through matching id - somehow) 
-// if note is created within a category, give it  unique ID somehow

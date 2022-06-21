@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const noteReducer = createSlice({
     name: 'notes',
-    initialState: [],
+    initialState: JSON.parse(localStorage.getItem('savedNotes')) || [],
     reducers: {
 
         addNotes: (state, action) => {

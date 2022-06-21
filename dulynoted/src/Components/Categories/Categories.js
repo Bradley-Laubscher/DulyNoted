@@ -22,28 +22,6 @@ const Categories = () => {
     const [ categoryItem, setCategoryItem ] = useState('');
     const [ select, setSelect ] = useState('');
     const [ activeCategory, setActiveCategory ] = useState(null);
-    // const savedCats = useSelector((state) => {
-    //     const savedInitialValue = JSON.parse(localStorage.getItem('savedCategories'));
-    //     return savedInitialValue || state.categories;
-    // });
-    // const [ savedCategories, setSavedCategories ] = useState(() => {
-    //     const saved = localStorage.getItem('savedCategories');
-    //     const initialValue = JSON.parse(saved);
-    //     return initialValue || '';
-    // });   
-
-    // useEffect(() => {
-    //     setSavedCategories(cats);
-    // }, [cats]);
-
-    useEffect(() => {
-        localStorage.setItem('savedCategories', JSON.stringify(cats));
-    }, [cats]);
-
-    // useEffect(() => {
-    //     const getSavedCategories = JSON.parse(localStorage.getItem('savedCategories'));
-    //     console.log('savedCategories', getSavedCategories);
-    // }, []);
 
     const createCategory = () => {
         setSelect(categoryItem);
@@ -84,17 +62,20 @@ const Categories = () => {
         } else {
           setActiveCategory(null); 
         }  
-    //   }, [ select ]);
     }, [ cats, select ]);
 
-      useEffect(() => {
+    useEffect(() => {
         if (activeCategory !== null) {
            activeCategory.map((category) => {
             const filteredCategoryId = category.categoryId;
             return dispatch(setActiveCategoryId(filteredCategoryId));
           })
         }
-      }, [dispatch, activeCategory]);
+    }, [dispatch, activeCategory]);
+
+    useEffect(() => {
+        localStorage.setItem('savedCategories', JSON.stringify(cats));
+    }, [cats]);
 
     return (
         <div>
@@ -104,7 +85,7 @@ const Categories = () => {
                     type='text' 
                     onChange={(e) => handleChange(e)} 
                     onKeyPress={(e) => {
-                        if (e.which ===13) {
+                        if (e.which === 13) {
                             createCategory();
                         }
                     }}
