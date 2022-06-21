@@ -16,9 +16,9 @@ import NoteItem from "../Note/NoteItem";
 import CategoryItem from "./CategoryItem";
 
 const Categories = () => { 
+    const dispatch = useDispatch();
     const cats = useSelector((state) => state.categories);
     const notes = useSelector((state) => state.notes);
-    const dispatch = useDispatch();
     const [ categoryItem, setCategoryItem ] = useState('');
     const [ select, setSelect ] = useState('');
     const [ activeCategory, setActiveCategory ] = useState(null);
@@ -45,7 +45,6 @@ const Categories = () => {
             return setCategoryItem('');
         })
     };
-    // why is there an error when adding a duplicate category, also why does setCategoryItem only work from the second category onwards?
     
     const handleChange = (e) => {
         setCategoryItem(e.target.value);
@@ -53,6 +52,13 @@ const Categories = () => {
 
     const handleSelectChange = (e) => {
         setSelect(e.target.value) 
+    };
+
+    const clearAll = () => {
+        if (window.confirm('Do you want to clear ALL categories and notes?')) {
+            localStorage.clear();
+            window.location.reload(true);
+        }
     };
 
     useEffect(() => {
@@ -80,6 +86,12 @@ const Categories = () => {
     return (
         <div>
             <div className='addCategory'>
+                <motion.button 
+                    className='clearAll' 
+                    onClick={() => clearAll()}
+                    whileTap={{ scale: 0.9}}>
+                    Clear All
+                </motion.button>
                 <input 
                     className='categoryInput'
                     type='text' 

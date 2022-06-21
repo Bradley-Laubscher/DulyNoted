@@ -1,8 +1,9 @@
 .addCategory {
-    margin-top: 1%;
+    margin-top: 2%;
 }
 
 .displayCategories {
+    margin-top: 3%;
     color: white;
 }
 
@@ -18,7 +19,7 @@
 }
 
 .categoryArea {
-  margin-top: 50px; 
+  margin-top: 10px; 
 }
 
 .categoryList {
@@ -38,12 +39,24 @@
     border-color: gold;
 }
 
+.clearAll {
+    margin: 2%;
+    display: block;
+    color: red;
+    background-color: black;
+    border-color: grey;
+}
+
 @media screen and (max-width: 600px) {
     .categoryInput {
         font-size: 15px;
     }
     .categoryButton {
         font-size: 15px;
+    }
+
+    .displayCategories {
+        margin-top: 10%;
     }
 }
 

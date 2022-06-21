@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import DisplayNotes from './DisplayNotes';
 
 const Notes = () => {
+    const dispatch = useDispatch();
     const [note, setNote] = useState('');
     const activeCategoryId = useSelector((state) => state.app.activeCategoryId);
-    const dispatch = useDispatch();
     const inputRef = useRef(null);
 
     const add = () => {

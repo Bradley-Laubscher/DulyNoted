@@ -47,8 +47,7 @@ const DisplayNotes = () => {
                       removeNotes={(id) => dispatch(removeNotes(id))}
                       updateNotes={(obj) => dispatch(updateNotes(obj))}
                       completeNotes={(id) => dispatch(completeNotes(id))}
-                    />
-                        
+                    />  
                   )
                 );
               })
