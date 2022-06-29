@@ -14,8 +14,31 @@ const categoriesReducer = createSlice({
         removeCategories: (state, action) => {
             let dlt = window.confirm('Are you sure you want to delete this list?')
             if (dlt) {
-                return state.filter((category) => category.categoryId !== action.payload)
-            };
+                // let savedNotes = JSON.parse(localStorage.getItem('savedNotes'));
+                // let savedCategories = JSON.parse(localStorage.getItem('savedCategories'));
+
+                // // have two arrays of saved data, if one includes the other, return, else removeItem;
+                // let savedNotesArray = [];
+                // let savedCategoriesArray = [];
+                // savedNotesArray.push(savedNotes.activeCategoryId);
+                // savedCategoriesArray.push(savedCategories.categoryId);
+                // let filteredSavedNotesArray = savedNotesArray.filter((activeCategoryId) => !savedCategories.includes(activeCategoryId));
+                // localStorage.removeItem(filteredSavedNotesArray);
+                // // return  savedNotesArray to savedNotes state(not just the ID's);
+                // // set localStorage to the new state;
+                // return localStorage.setItem()
+
+                // savedNotes.map((note) => {
+                //     state.map((category) => {
+                //         if (category.categoryId !== note.activeCategoryId) {
+                //             return localStorage.removeItem(note);
+                //         };
+                //     });
+                //     return localStorage.setItem('savedNotes', JSON.stringify(savedNotes));
+                // });
+                
+                return state.filter((category) => category.categoryId !== action.payload);
+            };            
         },
 
         updateCategories: (state, action) => {

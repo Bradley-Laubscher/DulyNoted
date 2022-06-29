@@ -1,11 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { AiFillEdit } from 'react-icons/ai';
 import { IoCheckmarkDoneSharp, IoClose } from "react-icons/io5";
 import { motion } from 'framer-motion';
+import { useSelector } from 'react-redux';
 
 const NoteItem = (props) => {
     const { item, updateNotes, removeNotes, completeNotes } = props;
     const inputRef = useRef(true);
+    const notes = useSelector((state) => state.notes);
   
     const changeFocus = () => {
       inputRef.current.disabled = false;
@@ -19,6 +21,12 @@ const NoteItem = (props) => {
         inputRef.current.disabled = true;
       }
     };
+
+    useEffect(()=> {
+      if (removeNotes) {
+        localStorage.setItem('savedNotes', JSON.stringify(notes));
+      }
+    }, [ removeNotes, notes ]);
     
     return (
       <motion.li

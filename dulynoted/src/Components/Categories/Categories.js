@@ -63,10 +63,10 @@ const Categories = () => {
 
     useEffect(() => {
         if (select !== 'All notes') {
-          const categoryFilter = cats.filter((category) => category.item === select);
-          setActiveCategory(categoryFilter);
+            const categoryFilter = cats.filter((category) => category.item === select);
+            setActiveCategory(categoryFilter);
         } else {
-          setActiveCategory(null); 
+            setActiveCategory(null); 
         }  
     }, [ cats, select ]);
 
@@ -76,12 +76,12 @@ const Categories = () => {
             const filteredCategoryId = category.categoryId;
             return dispatch(setActiveCategoryId(filteredCategoryId));
           })
-        }
-    }, [dispatch, activeCategory]);
+        } 
+    });  
 
     useEffect(() => {
         localStorage.setItem('savedCategories', JSON.stringify(cats));
-    }, [cats]);
+    });
 
     return (
         <div>
@@ -115,43 +115,43 @@ const Categories = () => {
             <div className='displayCategories'>
                 Select a list:
                 <select className='categorySelection' onChange={handleSelectChange}>
-                {cats.map((category) => {
-                    return (
-                    <option selected>
-                        {category.item}
+                    {cats.map((category) => {
+                        return (
+                        <option selected>
+                            {category.item}
+                        </option>
+                        )  
+                    })}
+                    <option>
+                        All notes
                     </option>
-                    )  
-                })}
-                <option>
-                    All notes
-                </option>
                 </select>
             
                 <ul className='categoryList'>  
-                { activeCategory !== null && activeCategory.map((category) => {
-                    return (
-                    <div>
-                        <CategoryItem
-                        key={category.categoryId}
-                        item={category}
-                        removeCategory={(categoryId) => dispatch(removeCategories(categoryId))}
-                        updateCategory={(obj) => dispatch(updateCategories(obj))}
-                        /> 
-                    </div>    
-                    )
-                })}
+                    { activeCategory !== null && activeCategory.map((category) => {
+                        return (
+                        <div>
+                            <CategoryItem
+                            key={category.categoryId}
+                            item={category}
+                            removeCategory={(categoryId) => dispatch(removeCategories(categoryId))}
+                            updateCategory={(obj) => dispatch(updateCategories(obj))}
+                            /> 
+                        </div>    
+                        )
+                    })}
 
-                { select === 'All notes' && notes.map((item) => {
-                    return (
-                    <NoteItem
-                        key={item.id}
-                        item={item}
-                        removeNotes={(id) => dispatch(removeNotes(id))}
-                        updateNotes={(obj) => dispatch(updateNotes(obj))}
-                        completeNotes={(id) => dispatch(completeNotes(id))}
-                        />
-                    )   
-                })}
+                    { select === 'All notes' && notes.map((item) => {
+                        return (
+                        <NoteItem
+                            key={item.id}
+                            item={item}
+                            removeNotes={(id) => dispatch(removeNotes(id))}
+                            updateNotes={(obj) => dispatch(updateNotes(obj))}
+                            completeNotes={(id) => dispatch(completeNotes(id))}
+                            />
+                        )   
+                    })}
                 </ul>
         
             </div>
@@ -160,3 +160,8 @@ const Categories = () => {
 };
 
 export default Categories;
+
+
+// Problem 1: Notes of last selected category do not display on page refresh;
+// Problem 2: when 'All notes' category is selected, the last note cannot be removed from localStorage, therefore it can re-appear if the user refreshes the page;
+// Problem 3: when removing a category, the notes remain in localStorage and can still be seen in the 'All notes' category after page refresh;

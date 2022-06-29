@@ -17,7 +17,7 @@ const DisplayNotes = () => {
     
   useEffect(() => {
     localStorage.setItem('savedNotes', JSON.stringify(notes));
-  }, [ notes ]);
+  });
   
   return (
     <div className="displayNotes">

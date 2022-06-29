@@ -22,10 +22,7 @@ const CategoryItem = (props) => {
     };
    
     return (
-      <li
-        key={item.categoryId}
-        className="card"
-      >
+      <li className="card">
         <div>
 
           <div className='categoryArea'>

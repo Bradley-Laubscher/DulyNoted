@@ -14,7 +14,6 @@ const Notes = () => {
         if (note === '') {
             alert('Please input a note')
         } else {
-            console.log(activeCategoryId);
             dispatch(addNotes({
                 id: Math.floor(Math.random() * 1000),
                 item: note,
