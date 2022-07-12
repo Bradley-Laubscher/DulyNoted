@@ -20,7 +20,7 @@ const Categories = () => {
     const cats = useSelector((state) => state.categories);
     const notes = useSelector((state) => state.notes);
     const [ categoryItem, setCategoryItem ] = useState('');
-    const [ select, setSelect ] = useState('');
+    const [ select, setSelect ] = useState(JSON.parse(localStorage.getItem('savedSelect')) || '');
     const [ activeCategory, setActiveCategory ] = useState(null);
 
     const createCategory = () => {
@@ -83,6 +83,10 @@ const Categories = () => {
         localStorage.setItem('savedCategories', JSON.stringify(cats));
     });
 
+    useEffect(() => {
+        localStorage.setItem('savedSelect', JSON.stringify(select));
+    });
+    
     return (
         <div>
             <div className='addCategory'>
@@ -117,7 +121,7 @@ const Categories = () => {
                 <select className='categorySelection' onChange={handleSelectChange}>
                     {cats.map((category) => {
                         return (
-                        <option selected>
+                        <option>
                             {category.item}
                         </option>
                         )  
@@ -162,6 +166,6 @@ const Categories = () => {
 export default Categories;
 
 
-// Problem 1: Notes of last selected category do not display on page refresh;
+// Problem 1: Select defaults to the last added category and not last selected category on page refresh;
 // Problem 2: when 'All notes' category is selected, the last note cannot be removed from localStorage, therefore it can re-appear if the user refreshes the page;
 // Problem 3: when removing a category, the notes remain in localStorage and can still be seen in the 'All notes' category after page refresh;
