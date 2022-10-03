@@ -5,6 +5,7 @@
 .displayCategories {
     margin-top: 3%;
     color: white;
+    
 }
 
 .categoryInput {
@@ -33,7 +34,7 @@
 
 .categoryTextArea {
     text-align: center;
-    color:gold;
+    color:black;
     border: 2px solid;
     border-radius: 10px;
     border-color: gold;
