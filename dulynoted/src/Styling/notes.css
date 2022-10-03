@@ -9,7 +9,7 @@
     border: 2px solid;
     border-radius: 10px;
     border-color:rgb(0, 255, 242);
-    width: 30%;
+    width: 45%;
 }
 
 .buttons {
@@ -23,7 +23,7 @@
 
 @media screen and (max-width: 600px) {
     .noteTextArea {
-        width: 65%;
-        margin-right: 10%;
+        width: 80%;
+        margin-right: 20%;
     }
 }
