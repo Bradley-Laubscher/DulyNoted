@@ -38,14 +38,16 @@ const CategoryItem = (props) => {
           <div className='btns'>
             <motion.button 
               whileTap={{ scale: 0.9}}
-              onClick={() => changeFocus()}>
+              onClick={() => changeFocus()}
+              title="Edit">
               <AiFillEdit />
             </motion.button>
 
             <motion.button
               whileTap={{ scale: 0.9}}
               style={{ color: "red" }}
-              onClick={() => removeCategory(item.categoryId)} >
+              onClick={() => removeCategory(item.categoryId)} 
+              title="Delete">
               <IoClose />
             </motion.button>
           </div>

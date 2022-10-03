@@ -50,7 +50,8 @@ const NoteItem = (props) => {
           <motion.button 
             whileTap={{ scale: 0.9}} 
             className='btns' 
-            onClick={() => changeFocus()}>
+            onClick={() => changeFocus()}
+            title="Edit">
             <AiFillEdit />
           </motion.button>
 
@@ -60,6 +61,7 @@ const NoteItem = (props) => {
               className='btns'
               style={{ color: "green" }}
               onClick={() => completeNotes(item.id)}
+              title="Complete"
             >
               <IoCheckmarkDoneSharp />
             </motion.button>
@@ -69,7 +71,8 @@ const NoteItem = (props) => {
             whileTap={{ scale: 0.9}}
             className='btns'
             style={{ color: "red" }}
-            onClick={() => removeNotes(item.id)} >
+            onClick={() => removeNotes(item.id)} 
+            title="Delete">
             <IoClose />
           </motion.button>
 
