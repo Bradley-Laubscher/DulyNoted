@@ -90,12 +90,6 @@ const Categories = () => {
     return (
         <div>
             <div className='addCategory'>
-                <motion.button 
-                    className='clearAll' 
-                    onClick={() => clearAll()}
-                    whileTap={{ scale: 0.9}}>
-                    Clear All
-                </motion.button>
                 <input 
                     className='categoryInput'
                     type='text' 
@@ -113,11 +107,16 @@ const Categories = () => {
                     className='categoryButton' 
                     onClick={() => createCategory()}>
                     Add a list
+                </motion.button>
+                <motion.button 
+                    className='clearAll' 
+                    whileHover={{ scale: 1.1 }} 
+                    onClick={() => clearAll()}
+                    whileTap={{ scale: 0.9}}>
+                    Clear All
                 </motion.button>   
-                <br />    
-            </div>
-            <div className='displayCategories'>
-                Select a list:
+                <br />
+                <div className="selectList">
                 <select className='categorySelection' onChange={handleSelectChange}>
                     {cats.map((category) => {
                         return (
@@ -130,7 +129,9 @@ const Categories = () => {
                         All notes
                     </option>
                 </select>
-            
+                </div>
+            </div>
+            <div className='displayCategories'>
                 <ul className='categoryList'>  
                     { activeCategory !== null && activeCategory.map((category) => {
                         return (

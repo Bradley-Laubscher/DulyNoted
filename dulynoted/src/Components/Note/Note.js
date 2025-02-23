@@ -35,6 +35,7 @@ const Notes = () => {
     return (
         <div className='addNote'>
             <input 
+                className="textInput"
                 ref={inputRef}
                 type='text'
                 onChange={(e) => handleChange(e)}
@@ -48,7 +49,7 @@ const Notes = () => {
            <motion.button 
                 whileHover={{ scale: 1.1 }} 
                 whileTap={{ scale: 0.9}} 
-                className='button' 
+                className='noteButton' 
                 onClick={() => add()}>
                 Add a note
            </motion.button>

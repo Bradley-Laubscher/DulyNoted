@@ -1,7 +1,3 @@
-.addCategory {
-    margin-top: 2%;
-}
-
 .displayCategories {
     margin-top: 3%;
     color: white;
@@ -11,25 +7,29 @@
 .categoryInput {
     border: 2px solid transparent;
     border-radius: 5px;
-    border-color: rgb(251, 2, 2);
+    border-color: blue;
     font-size: 20px;
 }
 
 .categoryButton {
     font-size: 20px;
-}
-
-.categoryArea {
-  margin-top: 10px; 
+    margin-left: 1%;
 }
 
 .categoryList {
     list-style-type: none;
 }
 
+.selectList {
+    border-top: 2px solid;
+    margin: 1%;
+}
+
 .categorySelection {
-    margin-top: 0.5%;
+    margin-top: 1%;
     font-size: 15px;
+    padding: 3px;
+    width: 30%;
 }
 
 .categoryTextArea {
@@ -42,10 +42,10 @@
 
 .clearAll {
     margin: 2%;
-    display: block;
     color: red;
     background-color: white;
-    border-color: grey;
+    font-size: 20px;
+    margin-left: 1%;
 }
 
 @media screen and (max-width: 600px) {
@@ -54,6 +54,7 @@
     }
     .categoryButton {
         font-size: 15px;
+        margin-left: 20px;
     }
 
     .displayCategories {

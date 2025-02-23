@@ -1,20 +1,38 @@
 .addNote {
-    margin-top: 1%;
+    padding: 2%;
+    width: 100%;
 }
 
 .noteTextArea {
     text-align: left;
-    padding-left: 1%;
-    color: black;
+    padding: 1%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.805);
     border: 2px solid;
     border-radius: 10px;
     border-color:rgb(0, 255, 242);
-    width: 45%;
+    width: 80%;
+    margin: 5px;
 }
 
 .buttons {
-    margin-top: 0.5%;
-    margin-bottom: 2%;
+    margin: 1%;
+}
+
+.textInput {
+    border: 2px solid transparent;
+    border-radius: 5px;
+    border-color: blue;
+    font-size: 20px;
+}
+
+.noteButton {
+    font-size: 20px;
+    margin-left: 1%;
+}
+
+.button {
+    margin: 1%;
 }
 
 .completed {
