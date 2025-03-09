@@ -12,12 +12,27 @@
 }
 
 .categoryButton {
-    font-size: 20px;
+    font-size: 18px;
+    padding: 5px 10px;
     margin-left: 1%;
-    color: black;
-    background-color: green;
-    border-radius: 5px;
+    color: white;
+    background-color: #28a745; /* A nicer green shade */
+    border-radius: 8px;
     border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.categoryButton:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05);
+}
+
+.categoryButton:active {
+    background-color: #1e7e34;
+    transform: scale(0.98);
 }
 
 .categoryList {
@@ -45,11 +60,30 @@
 }
 
 .clearAll {
+    font-size: 18px;
+    padding: 5px 10px;
     margin: 2%;
+    margin-left: 1%;
     color: red;
     background-color: white;
-    font-size: 20px;
-    margin-left: 1%;
+    border: 2px solid red;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.clearAll:hover {
+    background-color: red;
+    color: white;
+    transform: scale(1.05);
+}
+
+.clearAll:active {
+    background-color: darkred;
+    border-color: darkred;
+    transform: scale(0.98);
 }
 
 @media screen and (max-width: 600px) {
