@@ -105,8 +105,9 @@ const Categories = () => {
                     whileHover={{ scale: 1.1 }} 
                     whileTap={{ scale: 0.9}} 
                     className='categoryButton' 
-                    onClick={() => createCategory()}>
-                    Add a list
+                    onClick={() => createCategory()}
+                    title="Add a list">
+                    +
                 </motion.button>
                 <motion.button 
                     className='clearAll' 

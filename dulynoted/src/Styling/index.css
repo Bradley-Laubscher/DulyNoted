@@ -1,7 +1,6 @@
 * {
-  font-family:  Comic Sans MS, Comic Sans;
+  font-family: "Montserrat", sans-serif;
   font-size: 15px;
-
 }
 
 @media screen and (max-width: 600px) {
@@ -20,4 +19,5 @@ body {
   background: url(/public/banner.webp);
   background-size: cover;
   background-position: center center;
+  font-family: "Brush Script MT", cursive;
 }

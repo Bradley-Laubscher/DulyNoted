@@ -50,8 +50,9 @@ const Notes = () => {
                 whileHover={{ scale: 1.1 }} 
                 whileTap={{ scale: 0.9}} 
                 className='noteButton' 
-                onClick={() => add()}>
-                Add a note
+                onClick={() => add()}
+                title="Add a note">
+                +
            </motion.button>
            <DisplayNotes />
         </div>

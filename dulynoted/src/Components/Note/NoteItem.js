@@ -43,6 +43,7 @@ const NoteItem = (props) => {
           disabled={inputRef}
           defaultValue={item.item}
           onKeyPress={(e) => update(item.id, inputRef.current.value, e)}
+          // style={{ fontFamily: 'Lucida Handwriting' }}
         />
         
         <div >
