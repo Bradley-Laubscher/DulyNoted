@@ -1,5 +1,4 @@
 .addNote {
-    padding: 2%;
     width: 100%;
 }
 
@@ -22,7 +21,8 @@
     border: 2px solid transparent;
     border-radius: 5px;
     border-color: blue;
-    font-size: 20px;
+    font-size: 25px;
+    width: 60%;
 }
 
 .noteButton {
@@ -30,7 +30,7 @@
     padding: 5px 10px;
     margin-left: 1%;
     color: white;
-    background-color: #28a745; /* A nicer green shade */
+    background-color: #28a745;
     border-radius: 8px;
     border: none;
     cursor: pointer;
@@ -40,7 +40,7 @@
 }
 
 .noteButton:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #218838;
     transform: scale(1.05);
 }
 

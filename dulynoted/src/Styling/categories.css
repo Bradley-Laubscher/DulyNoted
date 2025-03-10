@@ -1,14 +1,21 @@
 .displayCategories {
-    margin-top: 3%;
-    color: white;
-    
+    color: white;    
+}
+
+.sectionTitle {
+    font-size: 28px;
+    font-weight: bold;
+    color: #00c5fb;
+    text-transform: uppercase;
+    margin-top: 1%;
 }
 
 .categoryInput {
     border: 2px solid transparent;
     border-radius: 5px;
     border-color: blue;
-    font-size: 20px;
+    font-size: 25px;
+    margin-left: 9%;
 }
 
 .categoryButton {
@@ -16,7 +23,7 @@
     padding: 5px 10px;
     margin-left: 1%;
     color: white;
-    background-color: #28a745; /* A nicer green shade */
+    background-color: #28a745;
     border-radius: 8px;
     border: none;
     cursor: pointer;
@@ -26,7 +33,7 @@
 }
 
 .categoryButton:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #218838;
     transform: scale(1.05);
 }
 
@@ -35,20 +42,31 @@
     transform: scale(0.98);
 }
 
-.categoryList {
-    list-style-type: none;
-}
-
 .selectList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-top: 2px solid;
     margin: 1%;
 }
 
+.categoryList {
+    padding: 0;
+}
+
 .categorySelection {
-    margin-top: 1%;
-    font-size: 15px;
-    padding: 3px;
+    font-size: 16px;
+    padding: 8px;
     width: 30%;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    padding-right: 30px;
+}
+
+.categorySelection:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 6px rgba(0, 86, 179, 0.3);
 }
 
 .categoryTextArea {
@@ -62,7 +80,6 @@
 .clearAll {
     font-size: 18px;
     padding: 5px 10px;
-    margin: 2%;
     margin-left: 1%;
     color: red;
     background-color: white;
@@ -93,10 +110,6 @@
     .categoryButton {
         font-size: 15px;
         margin-left: 20px;
-    }
-
-    .displayCategories {
-        margin-top: 10%;
     }
 }
 

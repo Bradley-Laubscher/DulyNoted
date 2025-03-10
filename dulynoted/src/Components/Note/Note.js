@@ -34,6 +34,9 @@ const Notes = () => {
 
     return (
         <div className='addNote'>
+            <div className="sectionTitle">
+                Add a note
+            </div>
             <input 
                 className="textInput"
                 ref={inputRef}

@@ -55,7 +55,7 @@ const Categories = () => {
     };
 
     const clearAll = () => {
-        if (window.confirm('Do you want to clear ALL categories and notes?')) {
+        if (window.confirm('Do you want to clear ALL lists and notes?')) {
             localStorage.clear();
             window.location.reload(true);
         }
@@ -89,6 +89,9 @@ const Categories = () => {
     
     return (
         <div>
+            <dv className="sectionTitle">
+                Add a list
+            </dv>
             <div className='addCategory'>
                 <input 
                     className='categoryInput'
@@ -118,18 +121,21 @@ const Categories = () => {
                 </motion.button>   
                 <br />
                 <div className="selectList">
-                <select className='categorySelection' onChange={handleSelectChange}>
-                    {cats.map((category) => {
-                        return (
+                    <div className="sectionTitle">
+                        Select a list
+                    </div>
+                    <select className='categorySelection' onChange={handleSelectChange}>
+                        {cats.map((category) => {
+                            return (
+                            <option>
+                                {category.item}
+                            </option>
+                            )  
+                        })}
                         <option>
-                            {category.item}
+                            All notes
                         </option>
-                        )  
-                    })}
-                    <option>
-                        All notes
-                    </option>
-                </select>
+                    </select>
                 </div>
             </div>
             <div className='displayCategories'>
