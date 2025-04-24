@@ -1,2 +1,26 @@
-A note application which allows the user to create lists of notes, add notes to specific lists, select which list they want visible, as well as edit and delete lists and notes.
-The app was built using Javascript, React and Redux.
+# 📝 React Redux Notepad
+
+A note-taking app built with React and Redux, allowing users to create and organize notes into custom categories with smooth animations and local persistence.
+
+---
+
+## 🚀 Features
+
+- Add, update, and delete notes
+- Organize notes into custom lists (categories)
+- Mark notes as complete
+- Persist data using `localStorage`
+- Animations using Framer Motion
+- Responsive design for desktop and mobile
+
+---
+
+## 🛠️ Tech Stack
+
+- React
+- Redux (with Redux Toolkit)
+- Framer Motion
+- CSS (custom, with media queries)
+- JavaScript (ES6+)
+
+---

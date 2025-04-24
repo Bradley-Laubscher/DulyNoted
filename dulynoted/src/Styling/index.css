@@ -1,6 +1,7 @@
 * {
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
+  overflow-x: hidden;
 }
 
 @media screen and (max-width: 600px) {

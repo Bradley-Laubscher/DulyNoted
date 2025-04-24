@@ -86,12 +86,16 @@ const Categories = () => {
     useEffect(() => {
         localStorage.setItem('savedSelect', JSON.stringify(select));
     });
+
+    useEffect(() => {
+        localStorage.setItem('savedNotes', JSON.stringify(notes));
+    }, [notes]);
     
     return (
         <div>
-            <dv className="sectionTitle">
-                Add a list
-            </dv>
+            <div className="sectionTitle">
+                Add A list
+            </div>
             <div className='addCategory'>
                 <input 
                     className='categoryInput'
@@ -104,27 +108,28 @@ const Categories = () => {
                     }}
                     value={categoryItem}
                 />
-                <motion.button 
-                    whileHover={{ scale: 1.1 }} 
-                    whileTap={{ scale: 0.9}} 
-                    className='categoryButton' 
-                    onClick={() => createCategory()}
-                    title="Add a list">
-                    +
-                </motion.button>
-                <motion.button 
-                    className='clearAll' 
-                    whileHover={{ scale: 1.1 }} 
-                    onClick={() => clearAll()}
-                    whileTap={{ scale: 0.9}}>
-                    Clear All
-                </motion.button>   
+                <div className="addCategoryButtons">
+                    <motion.button
+                        className='categoryButton'
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9}}
+                        onClick={() => createCategory()}>
+                        Add A List
+                    </motion.button>
+                    <motion.button
+                        className='clearAll'
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9}}
+                        onClick={() => clearAll()}>
+                        Clear All
+                    </motion.button>
+                </div>
                 <br />
                 <div className="selectList">
                     <div className="sectionTitle">
                         Select a list
                     </div>
-                    <select className='categorySelection' onChange={handleSelectChange}>
+                    <select className='categorySelection' onChange={handleSelectChange} value={select}>
                         {cats.map((category) => {
                             return (
                             <option>
@@ -146,7 +151,11 @@ const Categories = () => {
                             <CategoryItem
                             key={category.categoryId}
                             item={category}
-                            removeCategory={(categoryId) => dispatch(removeCategories(categoryId))}
+                            removeCategory={(categoryId) => {
+                                dispatch(removeCategories(categoryId));
+                                const updatedNotes = notes.filter(note => note.categoryId !== categoryId);
+                                localStorage.setItem('savedNotes', JSON.stringify(updatedNotes));
+                            }}
                             updateCategory={(obj) => dispatch(updateCategories(obj))}
                             /> 
                         </div>    
