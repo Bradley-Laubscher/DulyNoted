@@ -1,10 +1,10 @@
-# 📝 React Redux Notepad
+# React Redux Notepad
 
 A note-taking app built with React and Redux, allowing users to create and organize notes into custom categories with smooth animations and local persistence.
 
 ---
 
-## 🚀 Features
+## Features
 
 - Add, update, and delete notes
 - Organize notes into custom lists (categories)
@@ -15,7 +15,7 @@ A note-taking app built with React and Redux, allowing users to create and organ
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - React
 - Redux (with Redux Toolkit)
